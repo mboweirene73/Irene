@@ -2,7 +2,9 @@ Ad hoc meta-analysis of uploaded primary studies
 ==================================================
 
 Effect sizes (Hedges' g):
-Cheng2020_1          outcome=skill_acquisition n1=15  n2=15  g=0.760  SE=0.369
+Cheng2020_1          outcome=diagnostic_accuracy_gain n1=15  n2=15  g=0.760  SE=0.369
+Cheng2020_2          outcome=diagnostic_sensitivity_gain n1=15  n2=15  g=3.874  SE=0.613
+Cheng2020_3          outcome=diagnostic_specificity_gain n1=15  n2=15  g=4.370  SE=0.667
 Lee2022_1            outcome=achievement     n1=18  n2=20  g=0.763  SE=0.330
 Lee2022_2            outcome=self_efficacy   n1=18  n2=20  g=1.199  SE=0.347
 Lee2022_3            outcome=attitude        n1=18  n2=20  g=1.274  SE=0.350
@@ -12,12 +14,12 @@ Tegos2016_D          outcome=knowledge_gain  n1=32  n2=32  g=0.935  SE=0.260
 Yang2023_GAIER       outcome=achievement     n1=18  n2=16  g=1.434  SE=0.378
 Yang2023_AR          outcome=achievement     n1=19  n2=16  g=0.414  SE=0.335
 
-k = 9 effect sizes from m = 4 independent studies (Cheng2020, Lee2022, Tegos2016, Yang2023)
-Q(8) = 10.744, tau^2 (DerSimonian-Laird) = 0.0355, I^2 = 25.5%
+k = 11 effect sizes from m = 4 independent studies (Cheng2020, Lee2022, Tegos2016, Yang2023)
+Q(10) = 59.293, tau^2 (DerSimonian-Laird) = 0.5968, I^2 = 83.1%
 
-Pooled Hedges' g (random-effects) = 0.896
-Naive SE (ignoring within-study dependency) = 0.125
-Cluster-robust SE (clustered by study, df=3) = 0.111
-95% CI (robust) = [0.544, 1.248]
-t(3) = 8.099, p = 0.0039
-Approx. 95% prediction interval = [0.361, 1.430]
+Pooled Hedges' g (random-effects) = 1.358
+Naive SE (ignoring within-study dependency) = 0.261
+Cluster-robust SE (clustered by study, df=3) = 0.368
+95% CI (robust) = [0.188, 2.529]
+t(3) = 3.693, p = 0.0345
+Approx. 95% prediction interval = [-0.486, 3.202]
