@@ -40,8 +40,8 @@ manuscript/           Chapter/write-up outlines mapped to PRISMA reporting items
 
 - [x] Repository scaffolded
 - [ ] Protocol reviewed/approved by you
-- [ ] Search strings finalized; open-web search run; database exports collected
-- [ ] Title/abstract screening complete
+- [x] Search strings finalized; **open-web search pass #1 run** (2026-07-08) — see caveat below on subscription databases
+- [ ] Title/abstract screening complete (in progress — see PRISMA counts below)
 - [ ] Full-text screening complete; PRISMA flow diagram numbers finalized
 - [ ] Data extraction complete for Objective 1 (cognitive)
 - [ ] Data extraction complete for Objective 2 (non-cognitive)
@@ -52,6 +52,25 @@ manuscript/           Chapter/write-up outlines mapped to PRISMA reporting items
 - [ ] Publication bias diagnostics run for all models
 - [ ] Results chapters drafted
 
+## PRISMA running totals (after open-web search pass #1, 2026-07-08)
+
+| Stage | n |
+|---|---|
+| Records identified via open-web search (10 queries, both outcome families) | 88 |
+| Of which: identified as meta-analyses/systematic reviews (routed to `search/umbrella_review_candidates.csv`, not screened as candidates) | 17 |
+| Remaining candidate records (primary-study pool) | 71 |
+| Duplicates removed | 3 |
+| Unique records screened (title/abstract) | 68 |
+| **Excluded at title/abstract**, with reason codes (see `screening/screening_log_template.csv`) | 28 |
+| **Included** at title/abstract (primary-study candidates, pending full-text) | **23** |
+| **Unsure** — flagged for full-text to confirm design/control group | 17 |
+
+Of the 23 confirmed includes: ~7 report both cognitive and non-cognitive outcomes (dual-coded for Objective 1 + 2), ~7 are cognitive-outcome-only, and the remainder are non-cognitive-outcome-only or anxiety/attitude-focused. All 23 have at least one Objective 3 moderator flagged in the `notes` column (AI type, duration, subject, grade level, or theoretical mechanism) for later coding. Exact per-objective counts will firm up at full-text screening.
+
+**Known limitation from this pass:** no institutional access to Scopus/Web of Science/PsycINFO/ERIC(EBSCO)/IEEE Xplore/ACM Digital Library from this environment — all 88 records came from open-web search only. This is a first pass, not a comprehensive systematic search; treat the corpus above as provisional until subscription-database exports are added. `WebFetch` to external sites (ScienceDirect, Nature, Springer, PMC, arXiv, ERIC) returned HTTP 403 in this environment, so reference-list/backward-citation extraction for the 17 umbrella reviews could not be completed automatically — logged as a to-do per row in `search/umbrella_review_candidates.csv`.
+
 ## Next step
 
-Review `protocol/protocol.md` and `search/search_strategy.md`, adjust the eligibility criteria (grade levels, year range, languages) to match your intended scope, then tell AI to proceed with the open-web search pass so the pipeline has real studies flowing into `screening/`.
+1. You run the subscription-database searches (Scopus/WoS/ERIC/PsycINFO/IEEE/ACM) using the strings in `search/search_strategy.md` and drop the exports in a new `search/exports/` folder — this is the biggest lever for corpus completeness.
+2. Review the 17 "unsure" records in `screening/screening_log_template.csv` and the 23 "include" records — full-text retrieval and screening is the next AI-led step once you confirm scope.
+3. Optionally: download PDFs for the highest-priority umbrella reviews (Ma & Adesope 2014; the 2025 K-12 ITS heterogeneity meta-analysis; the GenAI motivation/engagement meta-analysis) so AI can extract their reference lists for backward citation searching, since direct fetch is blocked from this environment.
